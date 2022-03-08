@@ -1,0 +1,59 @@
+import java.util.Scanner;
+class Arr 
+{
+    private int[][][] x ,y,sum;
+    private int q,w,e;
+    Arr(int a,int b,int c)
+    {
+        x = new int[a][b][c];
+        y = new int[a][b][c];
+        sum = new int[a][b][c];
+    }
+    private int[][][] insert(int[][][] a)
+    {
+        Scanner s = new Scanner(System.in);
+        for(int i=0;i<a[0][0].length;i++)
+            for(int j=0;j<a[0].length;j++)
+                for(int k=0;k<a.length;k++)
+                    a[k][j][i] = s.nextInt();
+        return a;
+        
+    }
+    public int[][][] sum()
+    {
+        x = insert(x);
+        y = insert(y);
+        //sum = new int[q][w][e];
+        for(int i=0;i<x[0][0].length;i++)
+            for(int j=0;j<x[0].length;j++)
+            for(int k=0;k<x.length;k++)
+                sum[k][j][i]  =x[k][j][i] +y[k][j][i];
+        return sum;
+    }
+    public void display()
+    {
+        for(int i=0;i<x[0][0].length;i++)
+        {
+            for(int j=0;j<x[0].length;j++)
+            {
+                for(int k=0;k<x.length;k++)
+                    System.out.print(sum[k][j][i]+" ");
+                    System.out.println("");
+            }
+            System.out.println("");
+        }
+    }
+}
+
+public class Sum3DApp 
+{
+
+    public static void main(String[] args) 
+    {
+        Arr arr = new Arr(1,2,3);
+        arr.sum();
+        arr.display();
+        
+        }
+    
+}
